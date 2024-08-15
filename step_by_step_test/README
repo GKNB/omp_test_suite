@@ -1,0 +1,6 @@
+module:
+
+esslurm
+cgpu/1.0
+nvhpc/21.9
+cuda/11.4.0

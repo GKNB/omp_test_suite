@@ -1,0 +1,3 @@
+Maybe we can modify 
+https://oneapi-spec.uxlfoundation.org/specifications/oneapi/v1.2-provisional-rev-1/elements/onemkl/source/domains/rng/onemkl-rng-usage-model
+To get some buffer-based kernel for RNG that can be used with omp
