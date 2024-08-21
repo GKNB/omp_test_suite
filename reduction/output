@@ -1,0 +1,9 @@
+Correct_sum = -5.40264
+Reduction_sum = -5.40264
+epsilon = 0.01
+Correct_sum = -260.485
+Reduction_sum = -260.483
+epsilon = 0.1
+Correct_sum = -685430
+Reduction_sum = -685430
+epsilon = 1

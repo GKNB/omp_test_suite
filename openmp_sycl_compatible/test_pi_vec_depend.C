@@ -8,7 +8,7 @@ void double_omp(float *A, unsigned N)
 {
 #pragma omp target map(tofrom: A[0:N])
   {
-#pragma omp target teams distribute parallel for simd
+#pragma omp teams distribute parallel for simd
     for(int i=0; i<N; i++)
     {
       A[i] = A[i] * 2.0;
@@ -25,7 +25,7 @@ void add_1(float *A, unsigned N)
     cgh.parallel_for<class Iota>(R, [=](cl::sycl::id<1> I) {
       AA[I] = AA[I] + 1.0;
     });
-  });
+  }).wait();
 }
 
 void iota(float *A, unsigned N) {
@@ -33,10 +33,10 @@ void iota(float *A, unsigned N) {
   cl::sycl::buffer<float, 1> AB(A, R);
   cl::sycl::queue().submit([&](cl::sycl::handler &cgh) {
     auto AA = AB.template get_access<cl::sycl::access::mode::write>(cgh);
-    cgh.parallel_for<class Iota>(R, [=](cl::sycl::id<1> I) {
+    cgh.parallel_for(R, [=](cl::sycl::id<1> I) {
       AA[I] = I;
     });
-  });
+  }).wait();
 }
 
 
