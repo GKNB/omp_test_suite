@@ -1,0 +1,6 @@
+We are testing atomicAdd with type i
+Time for serial with N = 33554432 and len = 131072 is 0.378858
+Time for CPU openmp atomic without rf with N = 33554432 and len = 131072 is 1.82204
+Time for CPU openmp atomic with rf with N = 33554432 and len = 131072 is 2.05739
+Time for GPU openmp atomic without rf with N = 33554432 and len = 131072 is 0.0616663
+Time for GPU openmp atomic with rf with N = 33554432 and len = 131072 is 0.0381422

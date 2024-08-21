@@ -1,7 +1,10 @@
 #include <stdio.h>
+#include <iostream>
+#include <omp.h>
 #include <stdlib.h>
 #include <mkl.h>
 #include <mkl_vsl.h>
+#include <mkl_omp_offload.h>
 
 int main() {
     // Define variables
@@ -9,7 +12,7 @@ int main() {
     int seed = 777; 
     int n = 10;     
     float *random_numbers = (float *)malloc(n * sizeof(float));  
-#pragma omp target enter data map(alloc: random_numbers[0:n]
+#pragma omp target enter data map(alloc: random_numbers[0:n])
 
 #pragma omp target variant dispatch
     {
